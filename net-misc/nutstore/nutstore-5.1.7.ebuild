@@ -1,0 +1,53 @@
+# Copyright 2021 Gentoo Authors
+# Distributed under the terms of the GNU General Public License v2
+
+EAPI=8
+
+PYTHON_COMPAT=( python3_{8..10} )
+inherit python-r1 desktop unpacker xdg-utils
+DESCRIPTION="a cloud service that lets you sync and share files anywhere."
+HOMEPAGE="https://www.jianguoyun.com/"
+SRC_URI="https://www.jianguoyun.com/static/exe/st/${PV}/nutstore_client-${PV}-linux-x64_86-public.tar.gz"
+LICENSE="custom"
+SLOT="0"
+KEYWORDS="~amd64"
+REQUIRED_USE="${PYTHON_REQUIRED_USE}"
+S="${WORKDIR}"
+
+RDEPEND="dev-libs/libappindicator
+x11-libs/libnotify
+dev-python/pygobject[${PYTHON_USEDEP}]
+net-libs/webkit-gtk"
+
+src_prepare() {
+	cd ${S}/gnome-config
+	sed -i '/Exec=/s|~/\.nutstore/dist/bin/nutstore-pydaemon.py|/usr/bin/nutstore|' menu/nutstore-menu.desktop
+	sed -i '/Exec=/s|~/\.nutstore/dist|/opt/nutstore|' autostart/nutstore-daemon.desktop
+	cd ${S}/bin
+	sed -i '/gvfs-set-attribute/s|gvfs-set-attribute|gio set|' nutstore-pydaemon.py
+	eapply_user
+}
+
+src_compile() {
+	cd ${S}/bin
+	python_foreach_impl python -m compileall .
+}
+
+src_install() {
+	cd ${S}
+	exeinto /usr/bin
+	doexe ${FILESDIR}/nutstore
+	diropts -m 755
+	dodir /usr/share/licenses/${PN}
+	insinto /usr/share/licenses/${PN}
+	doins ${FILESDIR}/license
+	insinto "/opt"
+	doins -r "${S}/${PN}"
+	domenu gnome-config/menu/nutstore-menu.desktop
+	doicon -s 64 app-icon/nutstore.png
+	fperms 0755 "/opt/${PN}" -R
+}
+
+pkg_postinst() {
+	xdg_icon_cache_update
+}
