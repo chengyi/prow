@@ -3,12 +3,12 @@ DESCRIPTION=a cloud service that lets you sync and share files anywhere.
 EAPI=8
 HOMEPAGE=https://www.jianguoyun.com/
 INHERIT=python-r1 desktop unpacker xdg-utils
-IUSE=python_targets_python3_8 python_targets_python3_9 python_targets_python3_10
+IUSE=python_targets_python3_9 python_targets_python3_10
 KEYWORDS=~amd64
 LICENSE=custom
-RDEPEND=dev-libs/libappindicator x11-libs/libnotify dev-python/pygobject[python_targets_python3_8(-)?,python_targets_python3_9(-)?,python_targets_python3_10(-)?] net-libs/webkit-gtk python_targets_python3_8? ( >=dev-lang/python-3.8.13:3.8 ) python_targets_python3_9? ( >=dev-lang/python-3.9.12:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.4:3.10 )
-REQUIRED_USE=|| ( python_targets_python3_8 python_targets_python3_9 python_targets_python3_10 )
+RDEPEND=dev-libs/libappindicator x11-libs/libnotify dev-python/pygobject[python_targets_python3_9(-)?,python_targets_python3_10(-)?] net-libs/webkit-gtk python_targets_python3_9? ( >=dev-lang/python-3.9.16:3.9 ) python_targets_python3_10? ( >=dev-lang/python-3.10.9:3.10 )
+REQUIRED_USE=|| ( python_targets_python3_9 python_targets_python3_10 )
 SLOT=0
 SRC_URI=https://pkg-cdn.jianguoyun.com/static/exe/st/5.1.7/nutstore_client-5.1.7-linux-x86_64-public.tar.gz
-_eclasses_=multibuild	d26d81f242cb193d899a72bca423d0bd	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	1542e649be915f43f6908a9e93909961	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	dd5e1098e305ad508d21f496e9e37046	python-r1	2d51fd03931e743811ce30d198e4dcfd	desktop	22952d8f27cac191d75529d4c38e6bfa	unpacker	697382d119fd3d195f110b7979184285	xdg-utils	fffb53a53cf17c9c0c998a3c0a590c7e
+_eclasses_=out-of-source-utils	1a9007554652a6e627edbccb3c25a439	multibuild	bddcb51b74f4a76724ff7cf8e7388869	multiprocessing	b4e253ab22cef7b1085e9b67c7a3b730	toolchain-funcs	ec8bbc28394c7305b43ea07164bd8f5f	multilib	5ca4e49abed8e3a2f7b56920eadee157	python-utils-r1	a1a985ddd8795a8634b4b7f820b93143	python-r1	666be58f658d6b32affe30f80e39a49e	desktop	7eb20ad915a0a318176d51bc2508ff5c	unpacker	fdd15d854bf5e84f82d35524ab8ca6ba	xdg-utils	ac0e315a3688929e34ac75b139e7349a
 _md5_=557d341e24c58c87c3fafa520ced7bad

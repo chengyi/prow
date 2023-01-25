@@ -10,6 +10,8 @@ HOMEPAGE="https://github.com/rofl0r/proxychains-ng/"
 EGIT_REPO_URI="https://github.com/rofl0r/proxychains-ng"
 EGIT_BRANCH="master"
 inherit git-r3
+
+LICENSE="GPL-2"
 SLOT="0"
 
 S=${WORKDIR}/${P}
