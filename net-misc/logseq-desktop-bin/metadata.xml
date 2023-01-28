@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>goldenmice@qq.com</email>
+		<name>hao wang</name>
+	</maintainer>
+	<longdescription lang="en">
+		Logseq is a platform for knowledge management and collaboration. It focuses on privacy, longevity, and user control.
+	</longdescription>
+	<upstream>
+		<remote-id type="github">logseq/logseq</remote-id>
+	</upstream>
+</pkgmetadata>
