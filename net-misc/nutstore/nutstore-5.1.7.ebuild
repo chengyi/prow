@@ -3,7 +3,7 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{8..10} )
+PYTHON_COMPAT=( python3_{8..11} )
 inherit python-r1 desktop unpacker xdg-utils
 DESCRIPTION="a cloud service that lets you sync and share files anywhere."
 HOMEPAGE="https://www.jianguoyun.com/"
