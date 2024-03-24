@@ -43,5 +43,5 @@ src_install() {
 	insinto /etc
 	doins src/${PN}.conf
 	insinto /usr/share/zsh/site-functions
-	doins completions/_proxychains4
+	doins completions/zsh/_proxychains4
 }
