@@ -9,10 +9,10 @@ DESCRIPTION="a cloud service that lets you sync and share files anywhere."
 HOMEPAGE="https://www.jianguoyun.com/"
 SRC_URI="https://pkg-cdn.jianguoyun.com/static/exe/ex/${PV}/nutstore_client-${PV}-linux-x86_64-public.tar.gz"
 LICENSE="custom"
+S="${WORKDIR}"
 SLOT="0"
 KEYWORDS="~amd64"
 REQUIRED_USE="${PYTHON_REQUIRED_USE}"
-S="${WORKDIR}"
 
 RDEPEND="dev-libs/libappindicator
 x11-libs/libnotify
