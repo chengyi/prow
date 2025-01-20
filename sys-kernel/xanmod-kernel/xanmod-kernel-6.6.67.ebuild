@@ -8,7 +8,7 @@ inherit kernel-build python-any-r1 toolchain-funcs
 PYTHON_COMPAT=( python3_{9..13} )
 MY_P=linux-${PV%.*}
 #Note: to bump xanmod, check GENPATCHES_P in sys-kernel/gentoo-kernel
-GENPATCHES_P=genpatches-${PV%.*}-70
+GENPATCHES_P=genpatches-${PV%.*}-75
 XV="1"
 
 DESCRIPTION="XanMod lts kernel built with Gentoo patches and cjktty"
@@ -61,12 +61,8 @@ pkg_setup() {
 src_prepare() {
 	# delete linux version patches
 	rm "${WORKDIR}"/*${MY_P}*.patch
-	rm "${WORKDIR}"/2400_bluetooth-mgmt-device-connected-fix.patch
-	rm "${WORKDIR}"/2600_HID-revert-Y900P-fix-ThinkPad-L15-touchpad.patch
 	rm "${WORKDIR}"/2952_resolve-btfids-Fix-compiler-warnings.patch
 	rm "${WORKDIR}"/2995_dtrace-6.6_p2.patch
-
-
 	local PATCHES=(
 		# genpatches
 		"${WORKDIR}"/*.patch
