@@ -1,0 +1,16 @@
+BDEPEND=dev-util/gtk-doc dev-util/intltool sys-devel/gnuconfig >=app-portage/elt-patches-20250306 || ( >=dev-build/automake-1.17-r1:1.17 >=dev-build/automake-1.16.5:1.16 ) || ( >=dev-build/autoconf-2.72-r1:2.72 ) >=dev-build/libtool-2.4.7-r3
+DEFINED_PHASES=compile configure install postinst prepare setup test
+DEPEND=>=dev-libs/dbus-glib-0.82[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=dev-libs/glib-2.35.4:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=dev-libs/libdbusmenu-0.5.90:=[gtk3,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=x11-libs/gtk+-3.0.0:3[introspection,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] app-accessibility/at-spi2-core:2 dev-libs/gobject-introspection dev-libs/libxml2:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] gnome-base/gnome-common test? ( dev-util/dbus-test-runner ) || ( dev-lang/vala:0.56 )
+DESCRIPTION=A library to allow applications to export a menu into the Unity Menu bar
+EAPI=8
+HOMEPAGE=https://launchpad.net/libappindicator
+INHERIT=multilib-minimal ubuntu-versionator vala
+IUSE=test abi_x86_32 abi_x86_64 abi_x86_x32 abi_mips_n32 abi_mips_n64 abi_mips_o32 abi_s390_32 abi_s390_64
+KEYWORDS=amd64
+LICENSE=LGPL-2.1 LGPL-3
+RDEPEND=>=dev-libs/dbus-glib-0.82[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=dev-libs/glib-2.35.4:2[abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=dev-libs/libdbusmenu-0.5.90:=[gtk3,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=x11-libs/gtk+-3.0.0:3[introspection,abi_x86_32(-)?,abi_x86_64(-)?,abi_x86_x32(-)?,abi_mips_n32(-)?,abi_mips_n64(-)?,abi_mips_o32(-)?,abi_s390_32(-)?,abi_s390_64(-)?] >=sys-libs/glibc-2.4
+RESTRICT=!test? ( test ) mirror
+SLOT=3
+SRC_URI=https://launchpad.net/ubuntu/+archive/primary/+files/libappindicator_12.10.1+20.10.20200706.1.orig.tar.gz https://launchpad.net/ubuntu/+archive/primary/+files/libappindicator_12.10.1+20.10.20200706.1-0ubuntu6.diff.gz
+_eclasses_=out-of-source-utils	dbf9e34ee8964084651e25907fa8f52c	multibuild	4650a65187015567b4e041bb9bfdb364	multilib	b2a329026f2e404e9e371097dda47f96	toolchain-funcs	6afdb6107430c1832ca7e16aacbf8fa1	multilib-build	9ac26ea006828266d235e2f0135429b5	multilib-minimal	e9f54d75b074edc47d36994bbc1e2123	gnuconfig	ddeb9f8caff1b5f71a09c75b7534df79	libtool	c81bd096be5f4c82f4e8f156ef112402	autotools	f20ecf7ab0a7c34e83238b3ed4aaf6d6	ubuntu-versionator	4f62ad5dd80b2d68c0e9367f3a510b76	flag-o-matic	e8de74bac929ba17427e740e95707d00	vala	e477903dbe0105930c51f170a592dc16
+_md5_=3b7ce083ddf1a2dcfe06082abdb3e064

@@ -5,10 +5,9 @@ EAPI=8
 
 inherit kernel-build python-any-r1 toolchain-funcs
 
-PYTHON_COMPAT=( python3_{9..13} )
 MY_P=linux-${PV%.*}
 #Note: to bump xanmod, check GENPATCHES_P in sys-kernel/gentoo-kernel
-GENPATCHES_P=genpatches-${PV%.*}-75
+GENPATCHES_P=genpatches-${PV%.*}-25
 XV="1"
 
 DESCRIPTION="XanMod lts kernel built with Gentoo patches and cjktty"
@@ -16,14 +15,12 @@ HOMEPAGE="https://www.kernel.org/"
 SRC_URI+=" https://cdn.kernel.org/pub/linux/kernel/v$(ver_cut 1).x/${MY_P}.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.base.tar.xz
 	https://dev.gentoo.org/~mpagano/dist/genpatches/${GENPATCHES_P}.extras.tar.xz
-	https://download.sourceforge.net/xanmod/patch-${PV}-xanmod1.xz
-	https://raw.githubusercontent.com/zhmars/cjktty-patches/master/v6.x/cjktty-${PV%.*}.patch
-	https://raw.githubusercontent.com/zhmars/cjktty-patches/master/cjktty-add-cjk32x32-font-data.patch"
+	https://download.sourceforge.net/xanmod/patch-${PV}-xanmod1.xz"
 S=${WORKDIR}/${MY_P}
 
 LICENSE="GPL-2"
 KEYWORDS="~amd64"
-IUSE="cjk clang debug +x86-64-v1 x86-64-v2 x86-64-v3 x86-64-v4"
+IUSE="clang debug +x86-64-v1 x86-64-v2 x86-64-v3 x86-64-v4"
 REQUIRED_USE="^^ ( x86-64-v1 x86-64-v2 x86-64-v3 x86-64-v4 )"
 
 PDEPEND="
@@ -61,18 +58,13 @@ pkg_setup() {
 src_prepare() {
 	# delete linux version patches
 	rm "${WORKDIR}"/*${MY_P}*.patch
-	rm "${WORKDIR}"/2952_resolve-btfids-Fix-compiler-warnings.patch
-	rm "${WORKDIR}"/2995_dtrace-6.6_p2.patch
+	#rm "${WORKDIR}"/2952_resolve-btfids-Fix-compiler-warnings.patch
 	local PATCHES=(
 		# genpatches
 		"${WORKDIR}"/*.patch
 		# xanmod patches
 		"${WORKDIR}"/patch-${PV}-xanmod${XV}
 	)
-	if use cjk; then
-		PATCHES+=("${DISTDIR}/cjktty-${PV%.*}.patch")
-		PATCHES+=("${DISTDIR}/cjktty-add-cjk32x32-font-data.patch")
-	fi
 	default
 
 	# prepare the default config
